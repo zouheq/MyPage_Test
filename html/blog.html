@@ -1,0 +1,401 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>个人主页</title>
+    <link type="text/css" rel="stylesheet" href="../css/picturetranslate.css" />
+    <link type="text/css" rel="stylesheet" href="../css/rotatedbox.css" />
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            color: #000;
+            background: url(https://i.loli.net/2017/10/14/59e2065123072.jpg) fixed;
+            background-size: cover;
+            background-repeat: repeat;
+            font-family: "微软雅黑","Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+            font-size: 12px;
+            min-height: 101%;
+        }
+
+        #blogTitle h1 {
+            font-size: 50px;
+            font-family: Consolas;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        #blogTitle h2 {
+            font-size: 25px;
+            font-family: Cursive;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        #home {
+            margin: 0 auto;
+            width: 65%;
+            min-width: 950px;
+            background-color: rgba(255,255,255,0.7);
+            padding: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 2px 6px rgba(100, 100, 100, 0.5);
+        }
+
+        a:link {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:visited {
+            color: cornflowerblue;
+        }
+
+        a:hover {
+            color: cadetblue;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        .container > section {
+            font-family: "微软雅黑";
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        nav a {
+            position: relative;
+            display: inline-block;
+            margin: 15px 25px;
+            outline: none; /*无轮廓*/
+            color: #fff;
+            text-decoration: none; /*文字修饰*/
+            text-transform: uppercase; /*文字大小写，仅大写*/
+            letter-spacing: 1px; /*字间距*/
+            font-weight: 400; /*文字不加粗*/
+            text-shadow: 0 0 1px rgba(255,255,255,0.3);
+            font-size: 16px;
+        }
+
+            nav a:hover,
+            nav a:focus {
+                outline: none; /*清除虚线框*/
+            }
+        .nav01 {
+            margin: 3% 17%;
+            position: center;
+        }
+
+            .nav01 a {
+                position: center;
+                line-height: 2em;
+                -webkit-perspective: 800px;
+                -moz-perspective: 800px;
+                perspective: 800px;
+            }
+
+                .nav01 a span {
+                    position: relative;
+                    display: inline-block;
+                    padding: 3px 15px 0;
+                    background: #587285;
+                    box-shadow: inset 0 3px #2f4351;
+                    -webkit-transition: background 0.6s; /*过渡*/
+                    -moz-transition: background 0.6s;
+                    transition: background 0.6s;
+                    -webkit-transform-origin: 50% 0;
+                    -moz-transform-origin: 50% 0;
+                    transform-origin: 50% 0;
+                    -webkit-transform-style: preserve-3d;
+                    -moz-transform-style: preserve-3d;
+                    transform-style: preserve-3d; /*内嵌元素的呈现空间*/
+                    -webkit-transform-origin: 0% 50%;
+                    -moz-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%; /*旋转元素的基点位置*/
+                }
+
+                    .nav01 a span::before {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 100%;
+                        height: 100%;
+                        background: #fff;
+                        color: #2f4351;
+                        content: attr(data-hover);
+                        -webkit-transform: rotateX(270deg);
+                        -moz-transform: rotateX(270deg);
+                        transform: rotateX(270deg);
+                        -webkit-transition: -webkit-transform 0.6s;
+                        -moz-transition: -moz-transform 0.6s;
+                        transition: transform 0.6s;
+                        -webkit-transform-origin: 0 0;
+                        -moz-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                        pointer-events: none; /*鼠标事件失效*/
+                    }
+
+                .nav01 a:hover span,
+                .nav01 a:focus span {
+                    background: #2f4351;
+                }
+
+                    .nav01 a:hover span::before,
+                    .nav01 a:focus span::before {
+                        -webkit-transform: rotateX(10deg);
+                        -moz-transform: rotateX(10deg);
+                        transform: rotateX(10deg);
+                    }
+
+        body, div, ul, li {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            border: 1px solid #999;
+            width: 1220px;
+            margin: 0 auto;
+            display: box;
+            display: -moz-box;
+            display: -webkit-box;
+        }
+
+        #left-sidebar {
+            width: 160px;
+            padding: 20px;
+            background: none;
+        }
+
+            #left-sidebar ul li {
+                text-align: center;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+                list-style: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+                #left-sidebar ul li a {
+                    color: #333;
+                    font-family: '微软雅黑';
+                    text-decoration: none;
+                }
+
+        #contents {
+            width: 900px;
+            padding: 20px;
+            /*background: #F6F4EC*/;
+            font-size: 12px;
+            color: #666;
+            line-height: 150%;
+        }
+
+            #contents h2 {
+                font-size: 27px;
+                text-align: center;
+            }
+
+            #contents p {
+                text-indent: 2em;
+            }
+
+            #contents section {
+                height: 21px;
+                font-size: 12px;
+                font-family: '微软雅黑';
+                border-bottom: 1px solid #ccc;
+            }
+
+        #right-sidebar {
+            font-size: 12px;
+            font-family: '微软雅黑';
+            width: 160px;
+            padding: 20px;
+            background: none;
+        }
+
+        #left-sidebar, #contents, #right-sidebar {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .title{
+            position:center;
+            margin:15% 0;
+           //padding:10%;
+        }
+            .title > h1 {
+                font-family: "微软雅黑";
+                font-size: xx-large;
+                font-weight: bold;
+            }
+            .title > h2{
+                font-family:"微软雅黑";
+                font-size:x-large;
+                font-weight:500;
+            }
+        .secondtitle {
+            position: center;
+            margin-top: -10%;
+            //padding: 10%;
+        }
+            .secondtitle > .blank {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin: auto auto;
+            }
+                .secondtitle > .blank > h2 {
+                    background-color: rgba(255,255,255,0.8);
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    margin: auto auto;
+                    font-family: "微软雅黑";
+                    font-size: x-large;
+                    font-weight: normal;
+                }
+
+            .secondtitle > h3 {
+                padding: 5px;
+                line-height: 25px;
+                text-indent: 2em;
+                margin: auto auto;
+                font-family: "微软雅黑";
+                font-size: medium;
+                font-weight: normal;
+            }
+            .secondtitle > .thirdtitle > h2 {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin: auto auto;
+                font-family: "微软雅黑";
+                color:red;
+                font-size: large;
+                font-weight: bold;
+            }
+            .secondtitle > .thirdtitle > h3 {
+                padding:5px;
+                line-height:25px;
+                text-indent: 2em;
+                margin: auto auto;
+                font-family: "微软雅黑";
+                font-size: medium;
+                font-weight: normal;
+            }
+            
+        
+
+    </style>
+    <script type="text/javascript">
+        /*7Core-CN - 网页鼠标点击特效（爱心）*/
+        !function (e, t, a) {
+            function r() {
+                for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y-- , s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999"); requestAnimationFrame(r)
+            } function n() { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function (e) { t && t(), o(e) } } function o(e) { var a = t.createElement("div"); a.className = "heart", s.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: c() }), t.body.appendChild(a) } function i(e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch (t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) } function c() { return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")" } var s = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) { setTimeout(e, 1e3 / 60) }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+        }(window, document);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0; jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"); var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length; var x = e.pageX, y = e.pageY; $i.css({ "z-index": 100000000, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); $("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function () { $i.remove(); });
+            });
+        });
+    </script>
+    <script src="js/drawline.js"></script>
+    <style type="text/css">
+        .body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body style="background-image: url(../images/back007.jpg); background-position: initial; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-origin: initial; background-clip: initial;">
+    <script src="http://open.sojson.com/common/js/canvas-nest.min.js" count="200" zindex="-2" opacity="0.5" color="47,135,193" type="text/javascript">
+    </script>
+    <div id="home">
+        <div id="header">
+            <div id="blogTitle">
+
+                <!--done-->
+                <h1><a id="Header1_HeaderTitle" class="headermaintitle" href="../index.html">Blue_Sky</a></h1>
+                <br>
+                <h2>God help someone who wants more.</h2>
+            </div><!--end: blogTitle 博客的标题和副标题 -->
+
+        </div><!--end: header 头部 -->
+
+        <div id="main">
+            <div id="mainContent">
+                <div class="container">
+                    <nav class="nav01">
+                        <a href="blog.html"><span data-hover="关于我">关于我</span></a>
+                        <a href="education.html"><span data-hover="教育经历">教育经历</span></a>
+                        <a href="work.html"><span data-hover="工作经历">工作经历</span></a>
+                        <a href="contact.html"><span data-hover="联系我">联系我</span></a>
+                    </nav>
+                    <div class="demo"></div>
+                </div>
+                <div class="title">
+                    <h1>唐诗</h1>
+                    <h2>--中华民族珍贵的文化遗产</h2>
+                </div>
+                <div class="secondtitle">
+                    <div class="blank"><h2>李白</h2></div>
+                    <h3>
+                        字太白，号青莲居士，又号“谪仙人”，是唐代伟大的浪漫主义诗人，被后人誉为“诗仙”，与杜甫并称为“李杜”，为了与另两位诗人李商隐与杜牧即“小李杜”区别，杜甫与李白又合称“大李杜”。据《新唐书》记载，李白为兴圣皇帝（凉武昭王李暠）九世孙，与李唐诸王同宗。其人爽朗大方，爱饮酒作诗，喜交友。
+                    </h3>
+                    <div class="thirdtitle">
+                        <h2>静夜思</h2>
+                        <h3>
+                            窗前明月光，疑是地上霜
+                        </h3>
+                        <h3>
+                            举头望明月，低头思故乡
+                        </h3>
+                    </div>
+                </div>
+            </div><!--end: mainContent 主体内容容器-->
+
+            <div id="sideBar">
+                <div id="sideBarMain">
+
+                </div><!--end: sideBarMain -->
+            </div><!--end: sideBar 侧边栏容器 -->
+            <div class="clear"></div>
+        </div><!--end: main -->
+        <div class="clear"></div>
+        <br />
+        <br />
+        <div id="footer">
+
+            <!--done-->
+            Copyright &copy;2019 Blue_Sky
+        </div><!--end: footer -->
+    </div>
+
+
+
+</body>
+</html>
+
